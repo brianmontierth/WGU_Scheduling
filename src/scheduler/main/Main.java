@@ -32,10 +32,10 @@ public class Main extends Application {
         stage.setTitle("Schedule App");
         SceneManager.setStage(stage);
 
-        Parent loginRoot = FXMLLoader.load(getClass().getResource("scheduler/login/LoginView.fxml"), init_Resources());
+        Parent loginRoot = FXMLLoader.load(getClass().getResource("../login/LoginView.fxml"), init_Resources());
         SceneManager.addScene("login", new Scene(loginRoot));
 
-        Parent mainRoot = FXMLLoader.load(getClass().getResource("scheduler/main/MainView.fxml"));
+        Parent mainRoot = FXMLLoader.load(getClass().getResource("../main/MainView.fxml"));
         SceneManager.addScene("main", new Scene(mainRoot));
 
         SceneManager.activate("login");
@@ -51,7 +51,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    public ResourceBundle init_Resources() {
+    private ResourceBundle init_Resources() {
         Locale us = new Locale("en","US");
         Locale es = new Locale("es");
 

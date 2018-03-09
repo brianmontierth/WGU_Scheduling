@@ -11,6 +11,8 @@ import scheduler.helper.SceneManager;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class LoginController implements Initializable {
 
@@ -27,21 +29,19 @@ public class LoginController implements Initializable {
     @FXML
     public Button loginButton = new Button();
 
-
-    public String errorMismatch;
-    public String errorIncomplete;
+    private String errorMismatch;
+    private String errorIncomplete;
 
 
 
     @Override @FXML
     public void initialize(URL location, ResourceBundle resources) {
         init_Locale(resources);
-        loginButton.setOnAction(event -> authenticate(event));
+        loginButton.setOnAction(this::authenticate);
     }
 
     @FXML
-    public void authenticate(ActionEvent event) {
-        // todo login form validation
+    private void authenticate(ActionEvent event) {
         if (username.getText().isEmpty() || password.getText().isEmpty())
         {
             new Alert(Alert.AlertType.ERROR, errorIncomplete).show();
@@ -49,24 +49,18 @@ public class LoginController implements Initializable {
         }
         // todo do some logging here
         System.out.println("Attempting to authenticate...");
-        try {
-            if (DataAccess.Auth(username.getText(), password.getText())) {
-                System.out.println("Access granted...");
-                SceneManager.activate("main");
-            }
-            else {
-                System.out.println("Access denied..." + errorMismatch);
-                new Alert(Alert.AlertType.ERROR, errorMismatch).show();
-                return;
-            }
-        } catch (SQLException e) {
-
-            e.printStackTrace();
+        if (DataAccess.Auth(username.getText(), password.getText())) {
+            System.out.println("Access granted...");
+            SceneManager.activate("main");
+        }
+        else {
+            System.out.println("Access denied..." + errorMismatch);
+            new Alert(Alert.AlertType.ERROR, errorMismatch).show();
         }
     }
 
     @FXML
-    public void init_Locale(ResourceBundle rb) {
+    private void init_Locale(ResourceBundle rb) {
         companyLabel.setText(rb.getString("companyName"));
         usernameLabel.setText(rb.getString("usernameText"));
         passwordLabel.setText(rb.getString("passwordText"));

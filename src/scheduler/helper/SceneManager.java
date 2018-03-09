@@ -14,11 +14,11 @@ public class SceneManager {
         main = stage;
     }
 
-    protected static void addScene(String name, Scene scene) {
+    public static void addScene(String name, Scene scene) {
         sceneMap.put(name, scene);
     }
 
-    protected static void removeScene(String name) {
+    public static void removeScene(String name) {
         sceneMap.remove(name);
     }
 

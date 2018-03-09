@@ -8,7 +8,7 @@ import java.sql.*;
 public class DataAccess {
     private static Connection connection;
 
-    protected static void connect() throws SQLException {
+    public static void connect() {
         String db = "U04UYO";
         String url = "jdbc:mysql://52.206.157.109/" + db;
         String user = "U04UYO";
@@ -24,14 +24,14 @@ public class DataAccess {
         }
     }
 
-    protected static void close() throws SQLException {
+    public static void close() throws SQLException {
         if (connection != null) {
             connection.close();
             System.out.println("Connection closed!");
         }
     }
 
-    protected static void addCustomer(Customer customer, String user) throws SQLException{
+    public static void addCustomer(Customer customer, String user) throws SQLException{
         connection.setAutoCommit(false);
         System.out.println("Adding Customer: " + customer);
         try {
@@ -94,7 +94,7 @@ public class DataAccess {
         }
     }
 
-    protected static void updateCustomer(Customer customer, String user) throws SQLException {
+    public static void updateCustomer(Customer customer, String user) throws SQLException {
         connection.setAutoCommit(false);
         System.out.println("Updating Customer: " + customer);
         try {
@@ -151,14 +151,12 @@ public class DataAccess {
     }
 
 
-    protected static int getMaxId() throws SQLException {
+    public static int getMaxId(){
         try {
             String select = "SELECT MAX(customerId) AS maxCustomerId FROM customer;";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(select);
-            while (rs.next()){
-                return rs.getInt(1);
-            }
+            return rs.getInt(1);
         } catch (Exception e) {
             System.out.println("select max customer id failed:");
             System.out.println("SQLException: " + e.getMessage());
@@ -166,7 +164,7 @@ public class DataAccess {
         return 0;
     }
 
-    protected static void getCustomers(ObservableList<Customer> customerList) {
+    public static void getCustomers(ObservableList<Customer> customerList) {
         String select = " SELECT cust.customerId, cust.customerName, cust.active, addr.address, addr.address2, addr.postalCode, addr.phone, city.city, ctry.country FROM customer cust INNER JOIN address addr ON cust.addressId = addr.addressId INNER JOIN city ON addr.cityId = city. cityId INNER JOIN country ctry ON city.countryId = ctry.countryId WHERE cust.active = 1 ORDER BY cust.customerName;";
         try {
             Statement stmt = connection.createStatement();
@@ -193,7 +191,7 @@ public class DataAccess {
     }
 
 
-    public static boolean Auth(String user, String pass) throws SQLException {
+    public static boolean Auth(String user, String pass) {
 
         try  {
             String select = "SELECT userName FROM user WHERE userName = ? AND password = ?;";
@@ -201,12 +199,7 @@ public class DataAccess {
             psUser.setString(1, user);
             psUser.setString(2, pass);
             ResultSet rs = psUser.executeQuery();
-            while (rs.next()) {
-                //System.out.println(user);
-                //System.out.println(rs.getString(1));
-                //System.out.println(user.equals(rs.getString(1)));
-                return user.equals(rs.getString(1));
-            }
+            return user.equals(rs.getString(1));
         } catch (SQLException e) {
             System.out.println("DataAccess.Auth() failed:");
             System.out.println("SQLException: " + e.getMessage());

@@ -19,9 +19,9 @@ public class MainController implements Initializable {
     @Override @FXML
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            TitledPane calendar = FXMLLoader.load(getClass().getResource("scheduler/calendar/CalendarView.fxml"));
-            TitledPane customer = FXMLLoader.load(getClass().getResource("scheduler/customer/CustomerView.fxml"));
-            TitledPane report = FXMLLoader.load(getClass().getResource("scheduler/report/ReportView.fxml"));
+            TitledPane calendar = FXMLLoader.load(getClass().getResource("../calendar/CalendarView.fxml"));
+            TitledPane customer = FXMLLoader.load(getClass().getResource("../customer/CustomerView.fxml"));
+            TitledPane report = FXMLLoader.load(getClass().getResource("../report/ReportView.fxml"));
 
             accordion.getPanes().addAll(calendar,customer,report);
             accordion.setExpandedPane(customer);
