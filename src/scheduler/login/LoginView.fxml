@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="950.0" prefWidth="950.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.login.LoginController">
+   <children>
+      <Label fx:id="companyLabel" text="Global Consulting Organization">
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="usernameLabel" text="Username:" />
+      <TextField fx:id="username" />
+      <Label fx:id="passwordLabel" text="Password:" />
+      <PasswordField fx:id="password" />
+      <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" text="Login">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

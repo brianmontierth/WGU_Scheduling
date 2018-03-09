@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="950.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.101" styleClass="Main" stylesheets="@../style/customer.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.main.MainController">
+    <children>
+        <Accordion VBox.vgrow="ALWAYS" fx:id="accordion">
+            <panes>
+            </panes>
+        </Accordion>
+    </children>
+</VBox>
+

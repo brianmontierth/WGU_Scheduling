@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.CheckBox?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.ListView?>
+        <?import javafx.scene.control.ScrollBar?>
+        <?import javafx.scene.control.SplitPane?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.control.TitledPane?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.RowConstraints?>
+
+<TitledPane animated="false" text="Customers" expanded="true" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scheduler.customer.CustomerController">
+<content>
+    <SplitPane dividerPositions="0.29797979797979796" prefHeight="522.0" prefWidth="788.0">
+        <items>
+            <BorderPane>
+                <center>
+                    <ListView fx:id="customerListView" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                </center>
+                <top>
+                    <Button fx:id="customerAddNewButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" styleClass="Cust_Button" text="Add New Customer" BorderPane.alignment="CENTER">
+                        <BorderPane.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </BorderPane.margin>
+                    </Button>
+                </top>
+                <right>
+                    <ScrollBar orientation="VERTICAL" prefHeight="839.0" prefWidth="28.0" BorderPane.alignment="CENTER" />
+                </right>
+            </BorderPane>
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="181.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="482.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label styleClass="Cust_Label" text="Customer Name:" GridPane.halignment="RIGHT">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="Address 1:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="Address 2:" GridPane.rowIndex="2">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="City:" GridPane.rowIndex="3">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="Postal Code:" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="Country:" GridPane.rowIndex="5">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <Label styleClass="Cust_Label" text="Phone:" GridPane.rowIndex="6">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Label>
+                    <TextField fx:id="customerName" styleClass="Cust_TextField" GridPane.columnIndex="1">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="address" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="address2" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="city" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="postalCode" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="country" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="phone" styleClass="Cust_TextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <CheckBox fx:id="active" mnemonicParsing="false" selected="true" styleClass="Cust_CheckBox" text="Active" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                    <HBox fillHeight="false" spacing="100.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <children>
+                            <Button fx:id="customerEditButton" focusTraversable="false" mnemonicParsing="false" prefHeight="36.0" prefWidth="75.0" styleClass="Cust_Button" text="Edit" />
+                            <Button fx:id="customerClearButton" focusTraversable="false" mnemonicParsing="false" prefHeight="36.0" prefWidth="75.0" styleClass="Cust_Button" text="Clear" />
+                            <Button fx:id="customerSaveButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="75.0" styleClass="Cust_Button" text="Save" />
+                        </children>
+                        <GridPane.margin>
+                            <Insets />
+                        </GridPane.margin>
+                    </HBox>
+                    <Label fx:id="customerId" focusTraversable="false" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                </children>
+            </GridPane>
+        </items>
+    </SplitPane>
+</content>
+</TitledPane>
